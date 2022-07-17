@@ -12,10 +12,21 @@ module Api
         render :show, locals: { reservation: reservation }
       end
 
+      def create
+        reservation = Reservation.create!(reservation_params)
+        render :show, locals: { reservation: reservation }
+      end
+
       private
 
       def reservation
         @reservation = Reservation.find(params[:id])
+      end
+
+      def reservation_params
+        params.require(:reservation).permit(
+          %i(hotel_name price currency arrival_date departure_date guest_name guest_email)
+        )
       end
     end
   end

@@ -51,7 +51,9 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:hotel_name, :price, :currency, :arrival_date, :departure_date, :guest_name, :guest_email)
+    params.require(:reservation).permit(
+      %i(hotel_name price currency arrival_date departure_date guest_name guest_email)
+    )
   end
 
   def set_reservation
