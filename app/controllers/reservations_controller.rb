@@ -44,6 +44,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 
