@@ -11,42 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :hotel_name %>
-    <%= form.text_field :hotel_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
+  <div class="row g-3">
+    <div class="mb-12">
+      <label for="inputHotelName" class="form-label">Hotel Name</label>
+      <input class="form-control" type="text" placeholder="Hotel name" aria-label="hotel name">
+    </div>
 
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
-  </div>
+    <div class="col-md-6">
+      <label for="inputPrice" class="form-label">Price</label>
+      <input type="text" class="form-control" id="inputPrice" placeholder="200.00">
+    </div>
 
-  <div class="field">
-    <%= form.label :arrival_date %>
-    <%= form.date_field :arrival_date %>
-  </div>
+    <div class="col-md-6">
+      <label for="inputCurrency" class="form-label">Currency</label>
+      <input type="text" class="form-control" id="inputCurrency", placeholder="euro">
+    </div>
+    <div class="mb-12">
+      <label for="inputGuestName" class="form-label">Guest Name</label>
+      <input class="form-control" type="text" placeholder="Guest Name" aria-label="guest name">
+    </div>
 
-  <div class="field">
-    <%= form.label :departure_date %>
-    <%= form.date_field :departure_date %>
-  </div>
+    <div class="mb-12">
+      <label for="inputEmail" class="form-label">Guest Email</label>
+      <input class="form-control" type="text" placeholder="Guest email" aria-label="Guest email">
+    </div>
 
-  <div class="field">
-    <%= form.label :guest_name %>
-    <%= form.text_field :guest_name %>
-  </div>
+    <div class="col-md-6">
+      <label for="inputArrivaldate" class="form-label">Arrival Date</label>
+      <input type="text" class="form-control" id="inputArrivaldate">
+    </div>
 
-  <div class="field">
-    <%= form.label :guest_email %>
-    <%= form.text_field :guest_email %>
-  </div>
+    <div class="col-md-6">
+      <label for="inputDepartureDate" class="form-label">Departure Date</label>
+      <input type="text" class="form-control" id="inputDepartureDate">
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div >
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>
