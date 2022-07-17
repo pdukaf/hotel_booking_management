@@ -22,6 +22,11 @@ module Api
         render :show, locals: { reservation: reservation }
       end
 
+      def destroy
+        reservation.destroy!
+        head :no_content
+      end
+
       private
 
       def reservation
