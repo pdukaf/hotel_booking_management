@@ -3,6 +3,7 @@
 
   <%= render 'form', reservation: @reservation %>
 
-  <%= link_to 'Show', @reservation %> |
-  <%= link_to 'Back', reservations_path %>
+  <br>
+  <%= link_to 'Show', @reservation, :class=>"btn btn-primary", :style=>"color: #fff;" %>
+  <%= link_to 'Back', reservations_path, :class=>"btn btn-primary", :style=>"color: #fff;" %>
 </div>
