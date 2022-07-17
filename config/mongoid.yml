@@ -1,0 +1,20 @@
+development:
+  clients:
+    default:
+      database: hotel_booking_management_development
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 30
+  options:
+
+test:
+  clients:
+    default:
+      database: hotel_booking_management_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
