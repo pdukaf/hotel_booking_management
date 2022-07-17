@@ -9,4 +9,6 @@ environment.plugins.prepend('Provide',
   })
 )
 
+environment.loaders.append('expose', { test: require.resolve('jquery'), use: { loader: 'expose-loader', options: '$' } })
+
 module.exports = environment

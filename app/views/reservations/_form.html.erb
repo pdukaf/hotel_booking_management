@@ -1,54 +1,56 @@
-<%= form_with(model: reservation) do |form| %>
-  <% if reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+<div class="container">
+  <%= form_with(model: reservation) do |form| %>
+    <% if reservation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
 
-      <ul>
-        <% reservation.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% reservation.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="row g-3">
+      <div class="mb-12">
+        <%= form.label :hotel_name, :class => "form-label" %>
+        <%= form.text_field :hotel_name, :class => "form-control", :placeholder => "Hotel Name" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :price, :class => "form-label" %>
+        <%= form.text_field :price, :class => "form-control", :placeholder => "200.00" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :currency, :class => "form-label" %>
+        <%= form.text_field :currency, :class => "form-control", :placeholder => "euro" %>
+      </div>
+      <div class="mb-12">
+        <%= form.label :guest_name, :class => "form-label" %>
+        <%= form.text_field :guest_name, :class => "form-control", :placeholder => "Jack reacher" %>
+      </div>
+
+      <div class="mb-12">
+        <%= form.label :guest_email, :class => "form-label" %>
+        <%= form.text_field :guest_email, :class => "form-control", :placeholder => "abc@example.com" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :arrival_date, :class => 'form-label' %>
+        <%= form.datetime_field :arrival_date, :class => "form-control datepicker", :placeholder => "dd/mm/yyyy" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :departure_date, :class => 'form-label' %>
+        <%= form.datetime_field :departure_date, :class => "form-control datepicker", :placeholder => "dd/mm/yyyy" %>
+      </div>
+
+      <div >
+        <%= form.submit %>
+      </div>
     </div>
   <% end %>
-
-
-  <div class="row g-3">
-    <div class="mb-12">
-      <label for="inputHotelName" class="form-label">Hotel Name</label>
-      <input class="form-control" type="text" placeholder="Hotel name" aria-label="hotel name">
-    </div>
-
-    <div class="col-md-6">
-      <label for="inputPrice" class="form-label">Price</label>
-      <input type="text" class="form-control" id="inputPrice" placeholder="200.00">
-    </div>
-
-    <div class="col-md-6">
-      <label for="inputCurrency" class="form-label">Currency</label>
-      <input type="text" class="form-control" id="inputCurrency", placeholder="euro">
-    </div>
-    <div class="mb-12">
-      <label for="inputGuestName" class="form-label">Guest Name</label>
-      <input class="form-control" type="text" placeholder="Guest Name" aria-label="guest name">
-    </div>
-
-    <div class="mb-12">
-      <label for="inputEmail" class="form-label">Guest Email</label>
-      <input class="form-control" type="text" placeholder="Guest email" aria-label="Guest email">
-    </div>
-
-    <div class="col-md-6">
-      <label for="inputArrivaldate" class="form-label">Arrival Date</label>
-      <input type="text" class="form-control" id="inputArrivaldate">
-    </div>
-
-    <div class="col-md-6">
-      <label for="inputDepartureDate" class="form-label">Departure Date</label>
-      <input type="text" class="form-control" id="inputDepartureDate">
-    </div>
-
-    <div >
-      <%= form.submit %>
-    </div>
-  </div>
-<% end %>
+</div>
