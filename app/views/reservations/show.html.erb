@@ -2,7 +2,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Reservations</h1>
+  <h1>Reservation-<%= @reservation.id%></h1>
 
   <table class="table table-hover">
     <thead>
@@ -28,14 +28,10 @@
         <td><%= @reservation.departure_date %></td>
         <td><%= @reservation.guest_name %></td>
         <td><%= @reservation.guest_email %></td>
-        <td><%= link_to edit_reservation_path(@reservation) do %>
-          <i class="bi bi-pencil" style="font-size:20px"></i>
-        <% end %>
-        </td>
-        <td><%= link_to @reservation, method: :destroy, data: { confirm: 'Are you sure?' } do %>
-          <i class="bi bi-trash" style="font-size:20px; color: red;"></i>
-        <% end %>
-        </td>
+        <td><%= link_to '<i class="bi bi-pencil"></i>'.html_safe, edit_reservation_path(@reservation) %></td>
+        <td><%= button_to @reservation, method: :delete, :onclick => "return confirm('Are you sure you want to delete this post?')", :style=>"border: none; background-color: #fff;" do %>
+              <i class="bi bi-trash" style="color: red;"></i>
+          <% end%></td>
       </tr>
     </tbody>
   </table>
