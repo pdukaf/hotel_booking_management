@@ -40,6 +40,11 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @reservation.destroy
+
+    respond_to do |format|
+      format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
+    end
   end
 
   private
