@@ -1,7 +1,7 @@
 module Api
   module V1
     class ReservationsController < ApiController
-      before_action :reservation, only: %i[ show update ]
+      before_action :set_reservation, only: %i[ show update destroy ]
       def index
         reservations = Reservation.all
 
@@ -9,30 +9,35 @@ module Api
       end
 
       def show
-        render :show, locals: { reservation: reservation }
+        render :show, locals: { reservation: @reservation }
       end
 
       def create
-        reservation = Reservation.create!(reservation_params)
-
-        render :show, locals: { reservation: reservation }
+        reservation = Reservation.new(reservation_params)
+        if reservation.save
+          render :show, locals: { reservation: reservation }
+        else
+          render json: reservation.errors, status: :unprocessable_entity
+        end
       end
 
       def update
-        reservation.update!((reservation_params))
-
-        render :show, locals: { reservation: reservation }
+        if @reservation.update(reservation_params)
+          render :show, locals: { reservation: @reservation }
+        else
+          render json: post.errors, status: :unprocessable_entity
+        end
       end
 
       def destroy
-        reservation.destroy!
+        @reservation.destroy!
 
         head :no_content
       end
 
       private
 
-      def reservation
+      def set_reservation
         @reservation = Reservation.find(params[:id])
       end
 
