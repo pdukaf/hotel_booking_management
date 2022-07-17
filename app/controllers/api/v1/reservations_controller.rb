@@ -14,16 +14,19 @@ module Api
 
       def create
         reservation = Reservation.create!(reservation_params)
+
         render :show, locals: { reservation: reservation }
       end
 
       def update
         reservation.update!((reservation_params))
+
         render :show, locals: { reservation: reservation }
       end
 
       def destroy
         reservation.destroy!
+
         head :no_content
       end
 

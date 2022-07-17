@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     end
   end
   root 'reservations#index'
+
+  match '*unmatched', to: proc { [404, {}, ['Invalid route']] }, via: :all
 end
