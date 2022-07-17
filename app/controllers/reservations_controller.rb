@@ -8,6 +8,9 @@ class ReservationsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def new
     @reservation = Reservation.new
   end
@@ -25,10 +28,15 @@ class ReservationsController < ApplicationController
   end
 
 
-  def edit
-  end
 
   def update
+    respond_to do |format|
+      if @reservation.update(reservation_params)
+        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
