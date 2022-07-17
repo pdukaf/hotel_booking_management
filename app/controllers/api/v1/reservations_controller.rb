@@ -1,7 +1,7 @@
 module Api
   module V1
     class ReservationsController < ApiController
-      before_action :reservation, only: %i[ show ]
+      before_action :reservation, only: %i[ show update ]
       def index
         reservations = Reservation.all
 
@@ -14,6 +14,11 @@ module Api
 
       def create
         reservation = Reservation.create!(reservation_params)
+        render :show, locals: { reservation: reservation }
+      end
+
+      def update
+        reservation.update!((reservation_params))
         render :show, locals: { reservation: reservation }
       end
 
