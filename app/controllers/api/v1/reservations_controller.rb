@@ -25,7 +25,7 @@ module Api
         if @reservation.update(reservation_params)
           render :show, locals: { reservation: @reservation }
         else
-          render json: post.errors, status: :unprocessable_entity
+          render json: @reservation.errors, status: :unprocessable_entity
         end
       end
 

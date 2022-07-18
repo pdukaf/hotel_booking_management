@@ -6,6 +6,6 @@ FactoryBot.define do
     arrival_date { FFaker::IdentificationESCO.expedition_date}
     departure_date { FFaker::IdentificationESCO.expedition_date}
     guest_name { FFaker::Name.name}
-    guest_email {200.00}
+    guest_email {FFaker::Internet.email}
   end
 end
